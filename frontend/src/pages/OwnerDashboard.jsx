@@ -249,7 +249,7 @@ function OwnerDashboard() {
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                         <div>
                           <p className="text-sm font-medium text-gray-500">Customer</p>
-                          <p className="text-gray-900 font-semibold">{booking.customerId?.name || "Unknown"}</p>
+                          <p className="text-gray-900 font-semibold">{booking.userId?.name || "Unknown"}</p>
                         </div>
                         <div>
                           <p className="text-sm font-medium text-gray-500">Service</p>

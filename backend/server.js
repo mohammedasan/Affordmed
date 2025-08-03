@@ -17,7 +17,7 @@ connectDB();
 const corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://bike-service-frontend.onrender.com", // use actual URL here
+    "https://bikeservice-1-j64f.onrender.com", // use actual URL here
   ],
   credentials: true,
   optionsSuccessStatus: 200,
