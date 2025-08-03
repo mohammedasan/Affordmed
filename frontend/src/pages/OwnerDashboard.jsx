@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+const API = import.meta.env.VITE_API_URL;
 function OwnerDashboard() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ function OwnerDashboard() {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get("http://localhost:5000/api/bookings/owner", {
+      const response = await axios.get(`${API}/api/bookings/owner`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

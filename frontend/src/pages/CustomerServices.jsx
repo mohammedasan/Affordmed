@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+const API = import.meta.env.VITE_API_URL;
 function CustomerServices() {
   const [services, setServices] = useState([]);
   const [selectedDate, setSelectedDate] = useState("");
@@ -23,7 +23,7 @@ function CustomerServices() {
       try {
         setLoading(true);
         setError(null);
-        const res = await axios.get("http://localhost:5000/api/services");
+        const res = await axios.get(`${API}/api/services`);
         setServices(res.data);
       } catch (err) {
         console.error("Failed to load services:", err);

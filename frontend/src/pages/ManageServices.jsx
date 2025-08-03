@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+const API = import.meta.env.VITE_API_URL;
 function ManageServices() {
   const [services, setServices] = useState([]);
   const [name, setName] = useState("");
@@ -16,7 +16,7 @@ function ManageServices() {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get("http://localhost:5000/api/services/owner", {
+      const response = await axios.get(`${API}/api/services/owner`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setServices(response.data);
