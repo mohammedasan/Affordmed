@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚲 Bike Service Booking App
 
 A full-stack web application for bike service booking and management. Built with React, Node.js, Express, and MongoDB.
@@ -202,3 +203,6 @@ Your deployed app will be available at:
 ---
 
 **Happy Deploying! 🚀** 
+=======
+# BikeService
+>>>>>>> 543ebdcdf0cff747b7f319af04127eadf81c930c
