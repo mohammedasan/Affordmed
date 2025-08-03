@@ -15,12 +15,16 @@ connectDB();
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.NODE_ENV === "production" 
-    ? ["https://your-app-name.onrender.com", "https://your-frontend-domain.com"]
-    : ["http://localhost:3000", "http://localhost:5173"],
+  origin: [
+    "http://localhost:5173",
+    "https://bike-service-frontend.onrender.com", // use actual URL here
+  ],
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
 };
+
+app.use(cors(corsOptions));
+
 
 // Middleware
 app.use(cors(corsOptions));
