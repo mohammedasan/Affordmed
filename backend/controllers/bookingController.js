@@ -1,10 +1,11 @@
 const Booking = require("../models/Booking.js");
 const Service = require("../models/Service.js");
-
 const createBooking = async (req, res) => {
   const { serviceId, date } = req.body;
   try {
-    const service = await Service.findById(serviceId);
+    // Get service with populated owner data
+    const service = await Service.findById(serviceId).populate("owner", "name email");
+
     if (!service) return res.status(404).json({ message: "Service not found" });
 
     const booking = await Booking.create({
@@ -14,11 +15,17 @@ const createBooking = async (req, res) => {
       status: "pending",
     });
 
-    res.status(201).json(booking);
+    // Return booking with owner details
+    res.status(201).json({
+      ...booking._doc,
+      owner: service.owner?.name || "Unknown"
+    });
+
   } catch (err) {
     res.status(500).json({ message: "Booking failed", error: err });
   }
 };
+
 
 const getMyBookings = async (req, res) => {
   try {

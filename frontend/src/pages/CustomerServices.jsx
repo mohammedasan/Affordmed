@@ -48,7 +48,7 @@ function CustomerServices() {
       setError(null);
       
       await axios.post(
-        "http://localhost:5000/api/bookings",
+        `${API}/api/bookings`,
         {
           serviceId,
           date: selectedDate,

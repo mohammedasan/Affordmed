@@ -23,7 +23,7 @@ function Dashboard() {
       try {
         setLoading(true);
         setError(null);
-        const response = await axios.get("http://localhost:5000/api/services", {
+        const response = await axios.get(`${API}/api/services`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -49,7 +49,7 @@ function Dashboard() {
     try {
       setBookingLoading(serviceId);
       await axios.post(
-        "http://localhost:5000/api/bookings",
+        `${API}/api/bookings`,
         { serviceId, date },
         {
           headers: {

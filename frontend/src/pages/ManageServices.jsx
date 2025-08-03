@@ -41,7 +41,7 @@ function ManageServices() {
       setError(null);
       
       await axios.post(
-        "http://localhost:5000/api/services",
+        `${API}/api/services`,
         { name, description, price },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -67,7 +67,7 @@ function ManageServices() {
 
     try {
       setDeletingId(id);
-      await axios.delete(`http://localhost:5000/api/services/${id}`, {
+      await axios.delete(`${API}/api/services/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchServices();

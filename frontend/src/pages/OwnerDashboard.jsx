@@ -35,7 +35,7 @@ function OwnerDashboard() {
     try {
       setUpdatingStatus(id);
       await axios.put(
-        `http://localhost:5000/api/bookings/${id}`,
+        `${API}/api/bookings/${id}`,
         { status },
         {
           headers: { Authorization: `Bearer ${token}` },
