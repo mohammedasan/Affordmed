@@ -15,13 +15,16 @@ connectDB();
 
 // CORS configuration
 const corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "https://bikeservice-1-j64f.onrender.com", // use actual URL here
-  ],
+  origin: process.env.NODE_ENV === "production"
+    ? [
+        "https://bikeservice-1-j64f.onrender.com", // ✅ your deployed frontend
+        "https://your-frontend-domain.com"         // optional fallback
+      ]
+    : ["http://localhost:3000", "http://localhost:5173"],
   credentials: true,
-  optionsSuccessStatus: 200,
+  optionsSuccessStatus: 200
 };
+
 
 app.use(cors(corsOptions));
 
