@@ -52,11 +52,11 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-purple-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Logo and Header */}
         <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
+          <div className="mx-auto h-16 w-16 bg-gradient-to-r from-blue-600 to-yellow-600 rounded-2xl flex items-center justify-center mb-6">
             <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
@@ -66,7 +66,7 @@ function Login() {
         </div>
 
         {/* Login Form */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-xl p-8 border border-yellow-100">
           <form className="space-y-6" onSubmit={handleLogin}>
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
@@ -145,9 +145,10 @@ function Login() {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200">
-                  Forgot your password?
-                </a>
+              <Link to="/forgot-password" className="font-medium text-blue-600 hover:text-blue-500">
+              Forgot your password?
+            </Link>
+
               </div>
             </div>
 
@@ -155,10 +156,10 @@ function Login() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 ${
                   loading
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transform hover:scale-105"
+                    : "bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-blue-700 hover:to-yellow-700 transform hover:scale-105"
                 }`}
               >
                 {loading ? (

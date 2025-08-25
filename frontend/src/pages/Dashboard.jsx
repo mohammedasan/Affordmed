@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API = import.meta.env.VITE_API_URL;
 function Dashboard() {
   const [services, setServices] = useState([]);
   const [date, setDate] = useState("");

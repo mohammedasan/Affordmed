@@ -18,6 +18,7 @@ function MyBookings() {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log("Token being sent:", token);
         setBookings(response.data);
       } catch (err) {
         console.error("Failed to fetch bookings", err);
@@ -86,7 +87,7 @@ function MyBookings() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
+      <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -301,24 +302,45 @@ function MyBookings() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                             <p className="text-sm text-blue-800">
-                              Your service is ready! Please collect your bike from our service center.
+                              Your service is ready! Your Bike will be delivered to you soon by Durai Saami Contact Number: 87687634534.
                             </p>
                           </div>
                         </div>
                       )}
 
-                      {booking.status === "completed" && (
-                        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    {booking.status === "completed" && (
+                      <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <div className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <svg className="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <svg
+                              className="w-5 h-5 text-green-600 mr-2"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
                             </svg>
                             <p className="text-sm text-green-800">
                               Service completed successfully! Thank you for choosing our service.
                             </p>
                           </div>
+
+                          {/* Pay Now button */}
+                          <button
+                            onClick={() => handlePayment(booking)}
+                            className="ml-4 px-3 py-1 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition-all duration-200"
+                          >
+                            Pay Now
+                          </button>
                         </div>
-                      )}
+                      </div>
+                    )}
+
                     </div>
                   </div>
                 </div>

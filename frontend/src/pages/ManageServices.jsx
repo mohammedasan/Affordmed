@@ -99,7 +99,7 @@ function ManageServices() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
+      <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -162,7 +162,7 @@ function ManageServices() {
 
               <div>
                 <label htmlFor="service-price" className="block text-sm font-medium text-gray-700 mb-2">
-                  Price ($)
+                  Price (Rupees)
                 </label>
                 <input
                   id="service-price"

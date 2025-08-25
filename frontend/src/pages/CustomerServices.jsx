@@ -134,11 +134,11 @@ function CustomerServices() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
+      <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Professional Bike Services
+              Gear Services Pro
             </h1>
             <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Choose from our comprehensive range of professional bike maintenance and repair services. 
@@ -251,7 +251,7 @@ function CustomerServices() {
                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      Professional Service
+                      Gear Service
                     </span>
                     <span className="flex items-center">
                       <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -9,6 +9,8 @@ import OwnerDashboard from "./pages/OwnerDashboard";
 import OwnerRoute from "./components/OwnerRoute";
 import Navbar from "./components/Navbar";
 import ManageServices from "./pages/ManageServices";
+import ForgotPassword from "./pages/ForgotPassword";
+
 import './App.css'
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/services" element={<CustomerServices />} />
           <Route path="/owner-dashboard" element={<OwnerDashboard />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
               path="/owner-dashboard"
               element={

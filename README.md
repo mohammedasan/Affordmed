@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🚲 Bike Service Booking App
 
 A full-stack web application for bike service booking and management. Built with React, Node.js, Express, and MongoDB.
@@ -130,8 +130,8 @@ bike-service-app/
    ```
 
 5. **Access the application**:
-   - Frontend: http://localhost:5173
-   - Backend: http://localhost:5000
+   - Frontend: https://bikeservice-1-j64f.onrender.com
+   - Backend: https://bikeservice-j8ru.onrender.com
 
 ## 🌐 API Endpoints
 
@@ -198,7 +198,7 @@ If you encounter any issues during deployment:
 ## 🚀 Live Demo
 
 Your deployed app will be available at:
-`https://your-app-name.onrender.com`
+`https://bikeservice-1-j64f.onrender.com`
 
 ---
 
