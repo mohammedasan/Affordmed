@@ -1,56 +1,40 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const path = require("path");
-const connectDB = require("./config/db.js");
-const authRoutes = require("./routes/authRoutes.js");
-const serviceRoutes = require("./routes/serviceRoutes.js");
-const bookingRoutes = require("./routes/bookingRoutes.js");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+
+import authRoutes from "./routes/auth.js";
+import shortUrlRoutes from "./routes/shortUrls.js";
 
 dotenv.config();
 const app = express();
 
-// DB
-connectDB();
-
-// CORS configuration
-const corsOptions = {
-  origin: process.env.NODE_ENV === "production"
-    ? [
-        "https://bikeservice-1-j64f.onrender.com", // ✅ your deployed frontend
-        "https://your-frontend-domain.com"         // optional fallback
-      ]
-    : ["http://localhost:3000", "http://localhost:5173"],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
-
-
-app.use(cors(corsOptions));
-
-
 // Middleware
-app.use(cors(corsOptions));
-app.use(express.json());
+app.use(cors());
+app.use(express.json()); // parse JSON body
 
 // Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/services", serviceRoutes);
-app.use("/api/bookings", bookingRoutes);
+app.use("/api/auth", authRoutes);            // signup/login
+app.use("/api/url", shortUrlRoutes);         // POST /api/url/shorten
+app.post("/api/test", (req, res) => {
+  res.json({ message: "POST works!" });
+});
 
-// Serve static files in production
-if (process.env.NODE_ENV === "production") {
-  // Serve static files from the React app
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("MongoDB connected successfully"))
+.catch((err) => console.error("MongoDB connection error:", err.message));
 
-  // Handle React routing, return all requests to React app
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-  });
-}
+// Default route
+app.get("/", (req, res) => {
+  res.send("URL Shortener API is running");
+});
 
+// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || "development"}`);
+  console.log(`Server running on port ${PORT}`);
 });
